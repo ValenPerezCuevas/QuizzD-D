@@ -7,7 +7,7 @@ import { questions } from "./data/questions.js";
         Variable Globales
 ********************************** */
 
-let botonAcceder = document.getElementById("idBotonAcceder")
+let botonAcceder = document.getElementById("idBotonAcceder") 
 let botonSalir = document.getElementById("idBotonSalir")
 
 
@@ -21,20 +21,48 @@ botonSalir.addEventListener("click", logout, onclick);
 /* *******************************
         Funciones
 ********************************** */
-// Renderring the page
+// Renderring the page (método a eliminar para que no fuera recursivo)
+// const renderPage = (quiz, ui) => {
+//   if (quiz.isEnded()) {
+//     ui.showScores(quiz.score);
+//   } else {
+//     console.log(quiz);
+//     // ui.showUsuario(quiz.getQuestionIndex().text);
+//     ui.showQuestion(quiz.getQuestionIndex().text);
+//     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
+//     ui.showChoices(quiz.getQuestionIndex().choices, (currenChoice) => {
+//       quiz.guess(currenChoice);
+//       renderPage(quiz, ui);
+//     });
+//   }
+// };
+// Aplicación que peta la ram del navegador. Buscar alternativa asíncrona
+// const renderPage = (quiz, ui) => {
+//   while (!quiz.isEnded()) {
+//     console.log(quiz);
+//     ui.showQuestion(quiz.getQuestionIndex().text);
+//     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
+//     ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
+//       quiz.guess(currentChoice);
+//     });
+//   }
+//   ui.showScores(quiz.score);
+// };
+
 const renderPage = (quiz, ui) => {
-  if (quiz.isEnded()) {
-    ui.showScores(quiz.score);
-  } else {
+  while (!quiz.isEnded()) {
     console.log(quiz);
-    // ui.showUsuario(quiz.getQuestionIndex().text);
     ui.showQuestion(quiz.getQuestionIndex().text);
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
-    ui.showChoices(quiz.getQuestionIndex().choices, (currenChoice) => {
-      quiz.guess(currenChoice);
-      renderPage(quiz, ui);
+    ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
+      quiz.guess(currentChoice);
+      setTimeout(() => {
+        renderPage(quiz, ui);
+      }, 0);
     });
+    return;
   }
+  ui.showScores(quiz.score);
 };
 
 function main() {
@@ -44,18 +72,14 @@ function main() {
   renderPage(quiz, ui);
 }
 
-/* *******************************
-        Función de acceso usuario
-********************************** */
+
 
 function login() {
   let nombre = prompt("Escribe tu nombre de usuario")
   localStorage.setItem("nombre", nombre)
   document.getElementById("idNombreAutor").innerHTML = nombre
 }
-/* *******************************
-        Función de salida y limpieza de usuario
-********************************** */
+
 function logout(){
   window.localStorage.clear();
   location.reload();

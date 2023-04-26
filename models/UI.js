@@ -6,10 +6,7 @@ export class UI {
    * @param {sting} text
    */
 
-  // showUsuario(text){
-  //   let usuario = prompt("Introduce tu nombre de usuario:");
-  //   usuario.innerHTML= text;
-  // }
+  
   showQuestion(text) {
     
     const questionTitle = document.getElementById("question");
@@ -36,8 +33,8 @@ export class UI {
 
   showScores(score) {
     const gameOverHTML = `
-      <h1>Result</h1>
-      <h2 id="score">Tu puntuación es: ${score}</h2>
+      
+      <h2 id="score">Tu puntuación es ${score}</h2>
       `;
     // <h2 id="score">Your scores: ${quiz.score}</h2>
 
