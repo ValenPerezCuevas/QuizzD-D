@@ -1,3 +1,4 @@
+
 export class UI {
   constructor() {}
 
@@ -12,6 +13,8 @@ export class UI {
     const questionTitle = document.getElementById("question");
     questionTitle.innerHTML = text;
   }
+
+  
 
   /**
    *
@@ -32,14 +35,24 @@ export class UI {
   }
 
   showScores(score) {
+    
     const gameOverHTML = `
       
-      <h2 id="score">Tu puntuación es ${score}</h2>
+      <h2 id="score"> Tu puntuación es ${score}</h2>
+      <input type="button" value="Volver Inicio" id="idBotonSalir">
       `;
-    // <h2 id="score">Your scores: ${quiz.score}</h2>
+    
 
     const element = document.getElementById("quiz");
     element.innerHTML = gameOverHTML;
+
+    let botonSalir = document.getElementById("idBotonSalir") 
+    botonSalir.addEventListener("click", logout, onclick);
+
+    function logout(){
+      window.localStorage.clear();
+      location.reload();
+    }
   }
 
   showProgress(currentIndex, total) {

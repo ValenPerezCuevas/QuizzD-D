@@ -11,6 +11,7 @@ let botonAcceder = document.getElementById("idBotonAcceder")
 let botonSalir = document.getElementById("idBotonSalir")
 
 
+
 /* *******************************
         Eventos
 ********************************** */
@@ -84,5 +85,7 @@ function logout(){
   window.localStorage.clear();
   location.reload();
 }
+
+
 
 main();
