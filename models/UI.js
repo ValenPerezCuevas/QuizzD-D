@@ -36,23 +36,47 @@ export class UI {
 
   showScores(score) {
     
-    const gameOverHTML = `
-      
-      <h2 id="score"> Tu puntuación es ${score}</h2>
-      <input type="button" value="Volver Inicio" id="idBotonSalir">
-      `;
+       // let botonSalir = document.getElementById("idBotonSalir") 
+    // botonSalir.addEventListener("click", logout, onclick);
+
+    // function logout(){
+    //   window.localStorage.clear();
+    //   location.reload();
+    // }
+
+
+    const usuarios = []
+    usuarios.push(["luis",1])
+    usuarios.push(["luis",3])
+    usuarios.push(["luis",2])
+    usuarios.push(["pepe",1])
+
+    const usuario = localStorage.getItem("idBotonAcceder")
+
+   
+    let H1Resultado = document.createElement("h1")
+    let H1Resultado1 = document.createTextNode("Resultado de mi Quiz")
+    H1Resultado.appendChild(H1Resultado1)
     
+    // <h2 id="score">Your scores: ${quiz.score}</h2>
 
-    const element = document.getElementById("quiz");
-    element.innerHTML = gameOverHTML;
+    let puntuacion = document.createElement("h3")
+    let puntuacion1 = document.createTextNode(`Tu puntuacion es: ${score}`)
+    puntuacion.appendChild(puntuacion1)
 
-    let botonSalir = document.getElementById("idBotonSalir") 
-    botonSalir.addEventListener("click", logout, onclick);
 
-    function logout(){
-      window.localStorage.clear();
-      location.reload();
-    }
+    const element1 = document.getElementById("quiz");  
+    
+    element1.addEventListener("click",(event)=> {
+      event.target.parentElement.remove();
+    })
+
+    // element1.innerHTML=""
+    
+    console.log(H1Resultado,puntuacion)
+    
+    element1.appendChild(H1Resultado)
+    element1.appendChild(puntuacion)
   }
 
   showProgress(currentIndex, total) {

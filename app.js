@@ -51,14 +51,16 @@ botonSalir.addEventListener("click", logout, onclick);
 // };
 
 const renderPage = (quiz, ui) => {
-  while (!quiz.isEnded()) {
+  if (!quiz.isEnded()) {
     console.log(quiz);
     ui.showQuestion(quiz.getQuestionIndex().text);
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
     ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
       quiz.guess(currentChoice);
       setTimeout(() => {
+        console.log("1")
         renderPage(quiz, ui);
+        
       }, 0);
     });
     return;
