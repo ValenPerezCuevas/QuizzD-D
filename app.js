@@ -15,64 +15,63 @@ let botonSalir = document.getElementById("idBotonSalir")
 /* *******************************
         Eventos
 ********************************** */
-botonAcceder.addEventListener("click", login, onclick);
-botonSalir.addEventListener("click", logout, onclick);
+botonAcceder?.addEventListener("click", login, false);
+botonSalir?.addEventListener("click", logout, false);
 
 
 /* *******************************
         Funciones
 ********************************** */
-// Renderring the page (método a eliminar para que no fuera recursivo)
-// const renderPage = (quiz, ui) => {
-//   if (quiz.isEnded()) {
-//     ui.showScores(quiz.score);
-//   } else {
-//     console.log(quiz);
-//     // ui.showUsuario(quiz.getQuestionIndex().text);
-//     ui.showQuestion(quiz.getQuestionIndex().text);
-//     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
-//     ui.showChoices(quiz.getQuestionIndex().choices, (currenChoice) => {
-//       quiz.guess(currenChoice);
-//       renderPage(quiz, ui);
-//     });
-//   }
-// };
-// Aplicación que peta la ram del navegador. Buscar alternativa asíncrona
-// const renderPage = (quiz, ui) => {
-//   while (!quiz.isEnded()) {
-//     console.log(quiz);
-//     ui.showQuestion(quiz.getQuestionIndex().text);
-//     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
-//     ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
-//       quiz.guess(currentChoice);
-//     });
-//   }
-//   ui.showScores(quiz.score);
-// };
 
-const renderPage = (quiz, ui) => {
-  if (!quiz.isEnded()) {
-    console.log(quiz);
+
+function mostrarQuiz(quiz, ui){
+  if (quiz.isEnded()) {
+    ui.showScores(quiz.score);
+  }
+  else{
     ui.showQuestion(quiz.getQuestionIndex().text);
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
-    ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
-      quiz.guess(currentChoice);
-      setTimeout(() => {
-        console.log("1")
-        renderPage(quiz, ui);
+    //Metodo en el que utilice peticiones asyncronas
+    // ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
+    //   quiz.guess(currentChoice);
+    //   setTimeout(() => {
+    //     console.log("1")
+    //     renderPage(quiz, ui);
         
-      }, 0);
-    });
-    return;
+    //   }, 0);
+    // });
+    ui.showChoices(quiz.getQuestionIndex().choices);
+    const botones = document.querySelectorAll("button.button")
+
+    botones.forEach(e => {
+      e.addEventListener("click",function(){
+        //Comprobamos si la respuesta es correcta
+        quiz.guess(this.textContent)
+
+        //Mostramos la siguientes
+
+        mostrarQuiz(quiz,ui)
+      })
+    })
+   
   }
-  ui.showScores(quiz.score);
-};
+
+  }
+    
+
+    
+    
+  
+
 
 function main() {
   document.getElementById("idNombreAutor").innerHTML= localStorage.getItem("nombre")
+  localStorage.setItem("indice",0)
+
   const quiz = new Quiz(questions);
-  const ui = new UI();
-  renderPage(quiz, ui);
+  const ui = new UI(quiz);
+  mostrarQuiz(quiz,ui);
+  
 }
 
 
@@ -88,6 +87,8 @@ function logout(){
   location.reload();
 }
 
-
+/* *******************************
+        Llamada a Funciones
+********************************** */
 
 main();

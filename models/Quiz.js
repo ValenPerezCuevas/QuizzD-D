@@ -3,7 +3,7 @@ import { Question } from "./Question.js";
 
 export class Quiz {
   score = 0;
-  questionIndex = 0;
+  
 
   /**
    *
@@ -18,17 +18,23 @@ export class Quiz {
    * @returns {Question} the question found
    */
   getQuestionIndex() {
-    return this.questions[this.questionIndex];
+    return this.questions[parseInt(localStorage.getItem("indice"))];
+  }
+
+  getIndex(){
+    return parseInt(localStorage.getItem("indice"))
   }
 
   isEnded() {
-    return this.questions.length === this.questionIndex;
+    return this.questions.length === parseInt(localStorage.getItem("indice"));
   }
 
   guess(answer) {
     if (this.getQuestionIndex().correctAnswer(answer)) {
       this.score++;
+      console.log("Correcta")
     }
-    this.questionIndex++;
+    let indice = parseInt(localStorage.getItem("indice"));
+    localStorage.setItem("indice",indice+1);
   }
 }

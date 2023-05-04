@@ -1,6 +1,12 @@
 
 export class UI {
-  constructor() {}
+  constructor(quiz) {
+    this._quiz=quiz
+  }
+  
+  get quiz(){
+    return this._quiz;
+  }
 
   /**
    *
@@ -8,43 +14,34 @@ export class UI {
    */
 
   
+  
   showQuestion(text) {
     
     const questionTitle = document.getElementById("question");
     questionTitle.innerHTML = text;
   }
 
-  
+ 
 
   /**
    *
    * @param {string[]} choices
    */
-  showChoices(choices, callback) {
+  showChoices(choices) {
     const choicesContainer = document.getElementById("choices");
     choicesContainer.innerHTML = "";
 
     for (let i = 0; i < choices.length; i++) {
       const button = document.createElement("button");
-      button.addEventListener("click", () => callback(choices[i]));
       button.className = "button";
       button.innerText = choices[i];
-
+      let mascara = this 
       choicesContainer.append(button);
-    }
+}
   }
 
   showScores(score) {
     
-       // let botonSalir = document.getElementById("idBotonSalir") 
-    // botonSalir.addEventListener("click", logout, onclick);
-
-    // function logout(){
-    //   window.localStorage.clear();
-    //   location.reload();
-    // }
-
-
     const usuarios = []
     usuarios.push(["luis",1])
     usuarios.push(["luis",3])
@@ -58,29 +55,36 @@ export class UI {
     let H1Resultado1 = document.createTextNode("Resultado de mi Quiz")
     H1Resultado.appendChild(H1Resultado1)
     
-    // <h2 id="score">Your scores: ${quiz.score}</h2>
+    //Se crea un elemento y se le añade la puntuación. 
 
     let puntuacion = document.createElement("h3")
     let puntuacion1 = document.createTextNode(`Tu puntuacion es: ${score}`)
     puntuacion.appendChild(puntuacion1)
 
-
+//Evento para borrar elemento del quizz
     const element1 = document.getElementById("quiz");  
     
     element1.addEventListener("click",(event)=> {
-      event.target.parentElement.remove();
+      document.getElementById("cabecera").remove();
+      document.getElementById("main").remove();
+      document.getElementById("footer").remove();
+      
     })
 
-    // element1.innerHTML=""
+  
     
     console.log(H1Resultado,puntuacion)
     
     element1.appendChild(H1Resultado)
     element1.appendChild(puntuacion)
+
+    console.log(usuario)
+   
   }
 
   showProgress(currentIndex, total) {
     var element = document.getElementById("progress");
+    console.log(this._quiz)
     element.innerHTML = `Pregunta ${currentIndex} de ${total}`;
   }
 }

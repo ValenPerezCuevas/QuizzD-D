@@ -16,7 +16,7 @@ export const data = [
   },
   {
     question: "¿En que destaca un paladín?",
-    choices: ["Su armadura pesada y su habilidades divinas", "Su sigilo y agilidad", "Su fuerza y dotes de batalla", "Sus conocimientos mágicos"],
+    choices: ["Su armadura pesada y su habilidades divinas", "Su sigilo,agilidad y uso de venenos", "Su fuerza y dotes de batalla", "Sus conocimientos mágicos"],
     answer: "Su armadura pesada y su habilidades divinas",
   }
 ];
