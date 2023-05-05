@@ -42,14 +42,7 @@ export class UI {
 
   showScores(score) {
     
-    const usuarios = []
-    usuarios.push(["luis",1])
-    usuarios.push(["luis",3])
-    usuarios.push(["luis",2])
-    usuarios.push(["pepe",1])
-
-    const usuario = localStorage.getItem("idBotonAcceder")
-
+    this.almacenarResultado(score)
    
     let H1Resultado = document.createElement("h1")
     let H1Resultado1 = document.createTextNode("Resultado de mi Quiz")
@@ -70,21 +63,78 @@ export class UI {
       document.getElementById("footer").remove();
       
     })
+/* *******************************
+        Creación de tabla
+********************************** */
 
+let nombres = [];
+
+
+let nombreGet = localStorage.getItem("nombre")
+nombres.push(nombreGet)
+console.log("El nombre", nombreGet)
+
+let informacion = JSON.parse(localStorage.getItem("informacion"))
+let resultado = informacion.resultados
+
+console.log("El array es: -----------", resultado)
+
+let tabla = document.getElementById("idTabla")
+tabla.removeAttribute("class")
+for(let i = 0; i < resultado.length; i++){
+  let tr = document.createElement("tr")
+  let td = document.createElement("td")
+  td.innerHTML = resultado[i].nombre; 
+
+  tr.appendChild(td)
   
+  let td2 = document.createElement("td")
+  td2.innerHTML = resultado[i].puntuacion; 
+
+  tr.appendChild(td2)
+
+  tabla.appendChild(tr)
+
+}
+
+console.log(resultado);
     
     console.log(H1Resultado,puntuacion)
     
     element1.appendChild(H1Resultado)
     element1.appendChild(puntuacion)
 
-    console.log(usuario)
    
   }
 
   showProgress(currentIndex, total) {
-    var element = document.getElementById("progress");
+    let element = document.getElementById("progress");
     console.log(this._quiz)
-    element.innerHTML = `Pregunta ${currentIndex} de ${total}`;
+    element.innerHTML = `Pregunta ${this._quiz.getIndex()} de ${total}`;
+  }
+
+  almacenarResultado(score){
+    
+    let informacion=localStorage.getItem("informacion")
+
+    if(informacion === null) {
+      informacion = { 
+        resultados : [{
+          nombre:localStorage.getItem("nombre"),
+          puntuacion:score}]
+        }
+    }else{
+      informacion=JSON.parse(informacion)
+      informacion.resultados.push(
+        {
+          nombre: localStorage.getItem("nombre"),
+          puntuacion:score
+        })
+    }
+    
+    localStorage.setItem("informacion", JSON.stringify(informacion))
+
+    console.log("aaaaaaaa",informacion)
+    
   }
 }

@@ -31,15 +31,7 @@ function mostrarQuiz(quiz, ui){
   else{
     ui.showQuestion(quiz.getQuestionIndex().text);
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
-    //Metodo en el que utilice peticiones asyncronas
-    // ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
-    //   quiz.guess(currentChoice);
-    //   setTimeout(() => {
-    //     console.log("1")
-    //     renderPage(quiz, ui);
-        
-    //   }, 0);
-    // });
+    
     ui.showChoices(quiz.getQuestionIndex().choices);
     const botones = document.querySelectorAll("button.button")
 
@@ -66,7 +58,7 @@ function mostrarQuiz(quiz, ui){
 
 function main() {
   document.getElementById("idNombreAutor").innerHTML= localStorage.getItem("nombre")
-  localStorage.setItem("indice",0)
+  localStorage.setItem("indice",1)
 
   const quiz = new Quiz(questions);
   const ui = new UI(quiz);

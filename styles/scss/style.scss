@@ -3,65 +3,75 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; }
+  height: 100vh;
+}
 
-body img {
+body img{
   display: flex;
-  align-content: center; }
-
-.oculto {
-  visibility: hidden; }
-
+  align-content: center;
+}
+.oculto{
+  visibility: hidden;
+}
 #quiz {
   background: #000000;
   width: 30rem;
   padding: 4rem;
-  text-align: center; }
+  text-align: center;
+}
 
 h1, h2 {
   color: #f70303;
   font-size: 3rem;
   text-align: center;
   padding: 2px 0px;
-  border-radius: 50px; }
+  border-radius: 50px;
+}
 
 h3 {
-  color: #f70303; }
+  color: #f70303;
+}
 
 #question {
   font-family: sans-serif;
   font-size: 1.7rem;
-  color: #fc0303; }
+  color: #fc0303;
+}
 
 .buttons {
-  margin-top: 30px; }
+  margin-top: 30px;
+}
 
 .button {
   min-height: 80px;
   background-color: #e3f705;
   width: 250px;
   font-size: 20px;
-  color: #fb0303;
+  color: rgb(251, 3, 3);
   border-radius: .3rem;
   padding: 10px 20px;
-  margin: 10px 40px 10px 0px; }
+  margin: 10px 40px 10px 0px;
+}
 
 #progress {
   color: #c60000;
-  font-size: 18px; }
+  font-size: 18px;
+}
 
 #btn0:hover,
 #btn1:hover,
 #btn2:hover,
 #btn3:hover {
   cursor: pointer;
-  background-color: #ece220; }
+  background-color: #ece220;
+}
 
 #btn0:focus,
 #btn1:focus,
 #btn2:focus,
 #btn3:focus {
-  outline: 0; }
+  outline: 0;
+}
 
 button, input {
   background-color: #333;
@@ -71,33 +81,46 @@ button, input {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease; }
+  transition: background-color 0.3s ease;
+}
 
 button:hover {
-  background-color: #555; }
+  background-color: #555;
+}
 
-footer, img {
+footer, img{
   display: inline-block;
-  align-items: center; }
+ align-items: center;
+ 
+}
 
-table, tr, td {
+
+table,tr,td{
   color: yellow;
   border: 1px solid white;
-  width: 100%; }
+  width: 100%;
+ 
+}
 
-#idTabla {
+#idTabla{
+  
   display: flex;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  
+}
 
-#idTabla #th1 {
-  width: 50%; }
+#idTabla #th1{
+  width: 50%;
+}
 
-#idTabla #th2 {
-  width: 50%; }
+#idTabla #th2{
+  width: 50%;
+}
 
-#idTabla thead {
+#idTabla thead{
   width: 15%;
-  text-align: center; }
+  text-align: center;
+}
 
-/*# sourceMappingURL=style.css.map */
+
