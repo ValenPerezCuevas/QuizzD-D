@@ -14,7 +14,7 @@ export class UI {
    */
 
   
-  
+
   showQuestion(text) {
     
     const questionTitle = document.getElementById("question");
@@ -40,21 +40,24 @@ export class UI {
 }
   }
 
-  showScores(score) {
-    
-    this.almacenarResultado(score)
-   
-    let H1Resultado = document.createElement("h1")
-    let H1Resultado1 = document.createTextNode("Resultado de mi Quiz")
-    H1Resultado.appendChild(H1Resultado1)
-    
-    //Se crea un elemento y se le añade la puntuación. 
 
+  showScores(score) {
+
+/* *******************************
+        Mostrar el resultado actual
+********************************** */
+    this.almacenarResultado(score)
+    let H1Resultado = document.createElement("h3")
+    let H1Resultado1 = document.createTextNode("Tu resultado de esta partida es: ")
+    H1Resultado.appendChild(H1Resultado1)
     let puntuacion = document.createElement("h3")
-    let puntuacion1 = document.createTextNode(`Tu puntuacion es: ${score}`)
+    let puntuacion1 = document.createTextNode(`${score}`)
     puntuacion.appendChild(puntuacion1)
 
-//Evento para borrar elemento del quizz
+/* *******************************
+        Borrar los otros elementos
+        para mostrar resultado
+********************************** */
     const element1 = document.getElementById("quiz");  
     
     element1.addEventListener("click",(event)=> {
@@ -66,6 +69,9 @@ export class UI {
 /* *******************************
         Creación de tabla
 ********************************** */
+let H3Tabla = document.createElement("legend")
+let H3Tabla1 = document.createTextNode("Puntuacion Jugadores")
+H3Tabla.appendChild(H3Tabla1)
 
 let nombres = [];
 
@@ -100,12 +106,27 @@ for(let i = 0; i < resultado.length; i++){
 console.log(resultado);
     
     console.log(H1Resultado,puntuacion)
-    
+    element1.appendChild(H3Tabla)
     element1.appendChild(H1Resultado)
     element1.appendChild(puntuacion)
 
-   
+   /* *******************************
+            Botón para volver al inicio
+    ********************************** */
+            const btnInicio = document.createElement("button");
+            const btnInicioText = document.createTextNode("Volver al inicio");
+            btnInicio.appendChild(btnInicioText);
+            
+            btnInicio.addEventListener("click", () => {
+              window.location.href = "index.html";
+            });
+            
+            element1.appendChild(btnInicio);
+            
   }
+
+
+
 
   showProgress(currentIndex, total) {
     let element = document.getElementById("progress");
@@ -113,6 +134,12 @@ console.log(resultado);
     element.innerHTML = `Pregunta ${this._quiz.getIndex()} de ${total}`;
   }
 
+
+
+  /* *******************************
+        Funcion de almacenamiento
+        en localstorage
+********************************** */
   almacenarResultado(score){
     
     let informacion=localStorage.getItem("informacion")

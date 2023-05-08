@@ -4,6 +4,7 @@ export const data = [
     choices: ["Un tipo de monstruo", "Una zona social", "Un escenario de D&D", "Una serie anime"],
     answer: "Un escenario de D&D",
   },
+ 
   {
     question: "¿Que es un D20?",
     choices: ["Un monstruo", "Un NPC", "Un dado", "Un hechizo de brujo"],

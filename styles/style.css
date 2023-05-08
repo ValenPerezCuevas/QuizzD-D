@@ -4,10 +4,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh; }
-
-body img {
-  display: flex;
-  align-content: center; }
+  body img {
+    display: flex;
+    align-content: center; }
 
 .oculto {
   visibility: hidden; }
@@ -25,7 +24,7 @@ h1, h2 {
   padding: 2px 0px;
   border-radius: 50px; }
 
-h3 {
+h3, legend {
   color: #f70303; }
 
 #question {
@@ -41,44 +40,39 @@ h3 {
   background-color: #e3f705;
   width: 250px;
   font-size: 20px;
-  color: #fb0303;
+  color: #f70303;
   border-radius: .3rem;
   padding: 10px 20px;
   margin: 10px 40px 10px 0px; }
+  .button:hover {
+    cursor: pointer;
+    background-color: #0ce2f1; }
+  .button:focus {
+    outline: 0; }
 
 #progress {
   color: #c60000;
   font-size: 18px; }
 
-#btn0:hover,
-#btn1:hover,
-#btn2:hover,
-#btn3:hover {
-  cursor: pointer;
-  background-color: #ece220; }
-
-#btn0:focus,
-#btn1:focus,
-#btn2:focus,
-#btn3:focus {
-  outline: 0; }
-
 button, input {
+  min-height: 80px;
+  background-color: #e3f705;
+  width: 250px;
+  font-size: 20px;
+  color: #f70303;
+  border-radius: .3rem;
+  padding: 10px 20px;
+  margin: 10px 40px 10px 0px;
   background-color: #333;
   color: yellow;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; }
-
-button:hover {
-  background-color: #555; }
-
-footer, img {
-  display: inline-block;
-  align-items: center; }
+  border-radius: 5px; }
+  button:hover, input:hover {
+    cursor: pointer;
+    background-color: #0ce2f1; }
+  button:focus, input:focus {
+    outline: 0; }
 
 table, tr, td {
   color: yellow;
@@ -87,17 +81,15 @@ table, tr, td {
 
 #idTabla {
   display: flex;
-  align-items: center;
-  flex-direction: column; }
-
-#idTabla #th1 {
-  width: 50%; }
-
-#idTabla #th2 {
-  width: 50%; }
-
-#idTabla thead {
-  width: 15%;
-  text-align: center; }
+  flex-direction: column;
+  align-items: center; }
+  #idTabla thead {
+    width: 100%;
+    text-align: center; }
+  #idTabla th, #idTabla td {
+    width: 100%;
+    color: yellow;
+    border: 1px solid white;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
