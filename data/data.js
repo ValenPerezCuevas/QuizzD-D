@@ -19,5 +19,25 @@ export const data = [
     question: "¿En que destaca un paladín?",
     choices: ["Su armadura pesada y su habilidades divinas", "Su sigilo,agilidad y uso de venenos", "Su fuerza y dotes de batalla", "Sus conocimientos mágicos"],
     answer: "Su armadura pesada y su habilidades divinas",
+  },
+  {
+    question: "¿Cual de las siguientes no es una escuela de magia?",
+    choices: ["Adivinación", "Conjuración", "Nigromancia", "Celeridad","Nigromancia"],
+    answer: "Celeridad",
+  },
+  {
+    question: "Cuanto daño genera(sin modificadores) el hechizo desintegrar?",
+    choices: ["2D6", "3D5+3", "6D20", "10D6+40"],
+    answer: "10D6+40",
+  },
+  {
+    question: "¿Quien tiene más destreza base?",
+    choices: ["Un gnomo", "Un humano", "Un tiflin", "Un mediano"],
+    answer: "Un tiflin",
+  },
+  {
+    question: "¿Que actor famoso no juega a D&D?",
+    choices: ["Vin Diesel", "Matt Damon", "Jack Black", "Leonardo Di Caprio"],
+    answer: "Leonardo Di Caprio",
   }
 ];

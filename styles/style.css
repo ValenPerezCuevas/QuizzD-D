@@ -1,9 +1,13 @@
+@charset "UTF-8";
+/* Opción 1: "MedievalSharp" */
+@import url("https://fonts.googleapis.com/css?family=MedievalSharp&display=swap");
 body {
   background-color: #272343;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; }
+  height: 100vh;
+  font-family: 'MedievalSharp', cursive; }
   body img {
     display: flex;
     align-content: center; }
@@ -19,13 +23,15 @@ body {
 
 h1, h2 {
   color: #f70303;
+  font-family: 'MedievalSharp', cursive;
   font-size: 3rem;
   text-align: center;
   padding: 2px 0px;
   border-radius: 50px; }
 
 h3, legend {
-  color: #f70303; }
+  color: #f70303;
+  font-family: 'MedievalSharp', cursive; }
 
 #question {
   font-family: sans-serif;
@@ -43,10 +49,11 @@ h3, legend {
   color: #f70303;
   border-radius: .3rem;
   padding: 10px 20px;
-  margin: 10px 40px 10px 0px; }
+  margin: 10px 40px 10px 0px;
+  font-family: 'MedievalSharp', cursive; }
   .button:hover {
     cursor: pointer;
-    background-color: #0ce2f1; }
+    background-color: #ae6860; }
   .button:focus {
     outline: 0; }
 
@@ -63,6 +70,7 @@ button, input {
   border-radius: .3rem;
   padding: 10px 20px;
   margin: 10px 40px 10px 0px;
+  font-family: 'MedievalSharp', cursive;
   background-color: #333;
   color: yellow;
   border: none;
@@ -70,7 +78,7 @@ button, input {
   border-radius: 5px; }
   button:hover, input:hover {
     cursor: pointer;
-    background-color: #0ce2f1; }
+    background-color: #ae6860; }
   button:focus, input:focus {
     outline: 0; }
 

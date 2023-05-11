@@ -9,6 +9,7 @@ import { questions } from "./data/questions.js";
 
 let botonAcceder = document.getElementById("idBotonAcceder") 
 let botonSalir = document.getElementById("idBotonSalir")
+// let botonResultados = document.getElementById("idBotonAcceder")
 
 
 
@@ -17,6 +18,7 @@ let botonSalir = document.getElementById("idBotonSalir")
 ********************************** */
 botonAcceder?.addEventListener("click", login, false);
 botonSalir?.addEventListener("click", logout, false);
+// botonResultados?.addEventListener("click",IrResultados,false);
 
 
 /* *******************************
@@ -58,7 +60,7 @@ function mostrarQuiz(quiz, ui){
 
 function main() {
   document.getElementById("idNombreAutor").innerHTML= localStorage.getItem("nombre")
-  localStorage.setItem("indice",1)
+  localStorage.setItem("indice",0)
 
   const quiz = new Quiz(questions);
   const ui = new UI(quiz);
@@ -78,6 +80,15 @@ function logout(){
   window.localStorage.clear();
   location.reload();
 }
+
+// function IrResultados(){
+  
+//   const ui = new UI();
+//   ui.showScores();
+  
+  
+  
+// }
 
 /* *******************************
         Llamada a Funciones
