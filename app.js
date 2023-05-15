@@ -9,7 +9,7 @@ import { questions } from "./data/questions.js";
 
 let botonAcceder = document.getElementById("idBotonAcceder") 
 let botonSalir = document.getElementById("idBotonSalir")
-// let botonResultados = document.getElementById("idBotonAcceder")
+let botonResultados = document.getElementById("idBotonResultados")
 
 
 
@@ -18,7 +18,9 @@ let botonSalir = document.getElementById("idBotonSalir")
 ********************************** */
 botonAcceder?.addEventListener("click", login, false);
 botonSalir?.addEventListener("click", logout, false);
-// botonResultados?.addEventListener("click",IrResultados,false);
+botonResultados?.addEventListener("click",IrResultados,false);
+
+
 
 
 /* *******************************
@@ -81,14 +83,15 @@ function logout(){
   location.reload();
 }
 
-// function IrResultados(){
+function IrResultados(){
   
-//   const ui = new UI();
-//   ui.showScores();
+  const ui = new UI();
+  let score = 0;
+  ui.showScores();
   
   
   
-// }
+ }
 
 /* *******************************
         Llamada a Funciones
