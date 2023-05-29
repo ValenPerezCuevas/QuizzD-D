@@ -18,7 +18,7 @@ let botonResultados = document.getElementById("idBotonResultados")
 ********************************** */
 botonAcceder?.addEventListener("click", login, false);
 botonSalir?.addEventListener("click", logout, false);
-botonResultados?.addEventListener("click",IrResultados,false);
+botonResultados?.addEventListener("click",irResultados,false);
 
 
 
@@ -55,11 +55,6 @@ function mostrarQuiz(quiz, ui){
   }
     
 
-    
-    
-  
-
-
 function main() {
   document.getElementById("idNombreAutor").innerHTML= localStorage.getItem("nombre")
   localStorage.setItem("indice",0)
@@ -83,15 +78,9 @@ function logout(){
   location.reload();
 }
 
-function IrResultados(){
-  
-  const ui = new UI();
-  let score = 0;
-  ui.showScores();
-  
-  
-  
- }
+function irResultados() {
+  console.log("Hola")
+}
 
 /* *******************************
         Llamada a Funciones

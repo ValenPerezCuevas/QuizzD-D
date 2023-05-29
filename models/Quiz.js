@@ -37,4 +37,5 @@ export class Quiz {
     let indice = parseInt(localStorage.getItem("indice"));
     localStorage.setItem("indice",indice+1);
   }
+
 }

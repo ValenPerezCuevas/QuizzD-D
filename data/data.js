@@ -22,7 +22,7 @@ export const data = [
   },
   {
     question: "¿Cual de las siguientes no es una escuela de magia?",
-    choices: ["Adivinación", "Conjuración", "Nigromancia", "Celeridad","Nigromancia"],
+    choices: ["Adivinación", "Conjuración", "Nigromancia", "Celeridad"],
     answer: "Celeridad",
   },
   {
